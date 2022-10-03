@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+ 
+ 
+  <style>
+
+
+ td, tr, textarea, select
+ {
+   font-family:고딕;
+  font-size:1em;
+  border-radius:5px;
+  
+ }
+ 
+ table, FORM
+ {
+  border:1px solid rgba(36, 228, 172, 0.29);
+  border-spacing:15px;
+  border-radius:20px;
+ }
+
+ #textbox{width:300px; height:30px; border:1px solid #00a6ff; font-size:12px; font-weight:bold; position:relative; top:-10px}
+
+ #idcheck{width:60px; height:30px; border:1px solid #00a6ff;background-color:#fff;font-size:12px; font-weight:bold; position:relative; top:-10px; cursor:pointer;}
+#pwd{font-size:1px; position: relative;}
+#back{  border-radius:20px; width:150px; height:40px; border:1px solid #ddd;background-color:#ddd; font-size:12px; font-weight:bold; position:relative;  cursor:pointer; right: 50px;}
+
+ #join{
+    border-radius:20px; width:150px; height:40px; border:1px solid #00a6ff;background-color:#00a6ff;color: #fff; font-size:12px; font-weight:bold; position:relative;  cursor:pointer; left: 50px;}
+  </style>
+
+
+</head>
+<body style="background-color:#fafafa">
+ <center>
+ <h1>회원가입</h1>
+
+
+
+ <table boder = "" bgcolor = "#fff">
+   <td text-align="center"> 아이디 </td></tr>
+
+   <tr>
+   <td><input type ="text" id="textbox" maxlength="18">
+   <input type = "button" id="idcheck"value = "중복확인"/></td>
+  </tr>
+
+
+
+  <tr>
+   <td> 비밀번호 </td> </tr>
+
+
+  <tr>
+   <td> <input type = "password"id="textbox"><p id="pwd">&nbsp;8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</p></td>
+  </tr>
+
+
+  <tr>
+   <td> 비밀번호 확인 </td></tr>
+
+
+  <tr>
+   <td> <input type = "password"id="textbox"></td>
+  </tr>
+
+  <tr>
+   <td> 성명 </td> </tr>
+
+  <tr>
+   <td> <input type = "text"id="textbox"> </td>
+  </tr>
+  <tr>
+   <td> 성별 </td> </tr>
+
+  <tr>
+   <td>
+    <input type = "radio" name = "gender" checked> 남자
+    <input type = "radio" name = "gender"> 여자
+   </td>
+  </tr>
+
+
+
+
+ </FORM>
+</table>
+
+<br/>
+
+<input type = "submit" id="back" value = "뒤로">
+
+
+<input type = "submit" id="join" value = "가입하기">
+
+
+</center>
+</body>
+</html>

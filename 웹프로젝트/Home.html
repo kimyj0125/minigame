@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>과제</title>  
+  <link href="" rel="stylesheet">
+  <link href="" rel="stylesheet">
+
+	<style type="text/css">
+
+	@import url("homecss.css");
+
+	</style>
+
+
+
+
+	<script>
+
+
+
+		if(localStorage.getItem("admin")==null)
+      {
+        localStorage.setItem("admin",123456);
+      }
+      if(localStorage.getItem("coupon1")==null)
+      {
+        localStorage.setItem("coupon1","testcoupon");
+      }
+
+window.onload=function(){
+	logincheck();
+
+	
+var myImagehref=document.getElementById("mainImageHref")
+var myImage=document.getElementById("mainImage");
+var imageArray=["물게.png","숫게.png"];
+var imageHref=["미니게임/물고기찾기.html","미니게임/숫자맞추기.html"];
+var imageIndex=0;
+
+setInterval(changeImage,2000);
+
+function changeImage(){
+myImage.src= (imageArray[imageIndex]);
+myImagehref.href= (imageHref[imageIndex]);
+imageIndex++;
+if(imageIndex>=imageArray.length){
+imageIndex=0;}
+}
+
+
+
+  showSlides(slideIndex);
+  var sec = 3000;
+  setInterval(function(){
+    slideIndex++;
+    showSlides(slideIndex);
+
+  }, sec);
+}
+
+     
+      
+
+
+
+      	function logincheck(){
+      		if (localStorage.getItem("login")=="O")
+      		{
+      		var a = localStorage.getItem("severID")
+          var ab = localStorage.getItem("nowmoney")
+      		var text ="<br>"+ a + " 님 로그인 중입니다." + '<input type="button" id="logoutbtn" onclick="logout();" value="로그아웃"/>';
+				var check = document.getElementById("loginbox");
+				check.innerHTML = text;
+				check.style.backgroundColor = "#0c4da2";
+				check.style.color = "white";
+				check.style.fontSize = "15px";
+				}
+			}
+      
+
+		function logintry()
+		{
+			var a = document.getElementById("loginId").value;
+			var b = document.getElementById("loginPw").value;
+      var ab = localStorage.getItem("nowmoney")
+			if(a == "admin" && b == localStorage.getItem("admin"))
+			{
+				localStorage.setItem("login","O");
+				localStorage.setItem("severID",a);
+
+				var text ="<br>"+ a + " 님 로그인 중입니다."+ '<input type="button" id="logoutbtn" onclick="logout();" value="로그아웃"/>';
+				var box = document.getElementById("loginbox");
+				box.innerHTML = text;
+				box.style.backgroundColor = "#0c4da2";
+				box.style.color = "white";
+				box.style.fontSize = "15px";
+
+        if(localStorage.getItem("nowmoney")==null)
+      {
+        localStorage.setItem("nowmoney",0);
+      }	
+			}
+			else
+			{
+		 		alert("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
+			}
+        }
+
+        function logout()
+        {
+        	localStorage.setItem("login","X");
+        	window.location.reload();
+        }
+
+        function charge()
+        {
+        	if (localStorage.getItem("login")=="O") 
+        		{
+        			window.open('충전.html','충전','width=500,height=300,location=no,status=no,scrollbars=no');
+        		}
+        	else
+        		{
+        		alert("먼저 로그인 후 사용해 주시기 바랍니다.");
+        		}
+        }
+        function change()
+        {
+        	if (localStorage.getItem("login")=="O") 
+        		{
+        			window.open('환전.html','포인트전환','width=500,height=300');
+        		}
+        		else
+        		{
+        		alert("먼저 로그인 후 사용해 주시기 바랍니다.");
+        		}
+        }
+
+              function game()
+        {
+        	if (localStorage.getItem("login")=="O") 
+        		{
+        			window.close();     
+        			window.open('미니게임.html');
+        		}
+        		else
+        		{
+        		alert("먼저 로그인 후 사용해 주시기 바랍니다.");
+        		}
+        }
+
+
+
+        function usecoupon()
+        {
+
+        	var couponcheack = localStorage.getItem("coupon1");
+        	var couponnowmoney = localStorage.getItem("nowmoney");
+        			var summoney;
+
+        	if (localStorage.getItem("login")=="O"){
+        		if (document.getElementById("couponnum").value == localStorage.getItem("coupon1")){
+        			summoney = parseInt(couponnowmoney) + 50000;
+        			localStorage.setItem("nowmoney",summoney)
+        			alert("50000포인트 충전되었습니다."+ "현재 포인트는 "+summoney+"입니다.");
+        			location.reload();
+
+        		}
+        		else
+        		{
+        			alert("잘못입력하셨습니다.");
+        		}
+
+
+        	}
+        	else
+        	{
+        	alert("먼저 로그인 후 사용해 주시기 바랍니다.");
+        	}
+        }
+
+var slideIndex = 0; 
+
+function moveSlides(n) {
+  slideIndex = slideIndex + n
+  showSlides(slideIndex);
+}
+
+function currentSlide(n) {
+  slideIndex = n;
+  showSlides(slideIndex);
+}
+
+function showSlides(n) {
+
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  var size = slides.length;
+
+  if ((n+1) > size) {
+    slideIndex = 0; n = 0;
+  }else if (n < 0) {
+    slideIndex = (size-1);
+    n = (size-1);
+  }
+
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  slides[n].style.display = "block";
+  dots[n].className += " active";
+}
+
+
+	</script>
+ </head>
+ <body> 
+ <div id="header">
+
+	<div id="top" class="width">
+		<img width="20px" height="20px" style= "position:relative; top:7px;" src="image/로고.png">
+		<a id="logofont">작은 놀이터</a>
+		
+		<nav id="service">
+			<ul>
+			
+				<li><a href="">홈으로</a></li>
+			</ul>
+		</nav>
+
+	</div>
+
+	<nav id="gnb">
+
+		<div id="depth1">
+			<div class="width">
+				<ul>
+					<li><a href="" onclick="charge();">충 전</a></li>
+					<li><a href="" onclick="change();">환 전</a></li>
+					<li><a href="" onclick="game();">미니게임</a></li>
+					<li><a href="고객센터.html">고객센터</a></li>
+				</ul>
+			</div>
+		</div>
+		
+
+	</nav>
+
+ </div>
+
+<div class="width">
+	<div style="display: inline-block; position: relative; bottom: 76px">
+	<div id="loginbox">
+          <label for="loginId" class="screen_out"></label>
+          <input type="email" id="loginId" name="loginId" placeholder="ID" value=""><br>
+          <label for="loginPw" class="screen_out"></label>
+          <input type="password" id="loginPw" name="password" placeholder="Password" value="">
+          <br>
+          <input type="submit" id="accountbtn"value="회원가입" onClick="window.open('회원가입.html','회원가입','width=500,height=700');">
+
+          	<input type="submit" id="loginbtn" value="로그인" onclick="logintry();"></input> 
+     </div>
+     <div id="coupon">
+        쿠폰번호입력 <br>
+        <div id="couponbox">
+        <input type="coupon" id="couponnum" value="" size="14">
+        <input type="submit" id="couponbtn" onclick="usecoupon();" value="쿠폰사용">
+        </div>
+    </div>
+</div>
+<div id="quickgame"style="display: inline-block;">
+	<a id=mainImageHref href="미니게임/숫자맞추기.html">
+     	<img src="숫게.png" id=mainImage style="width: 824.4px;height:270px;">
+     </div>
+		
+	 
+</div>
+
+ <div id="container">
+
+	<div id="cont" class="width">
+
+		<div id="quick">
+			<a href=""><img src=""></a>
+			<a href=""><img src=""></a>
+			<a href=""><img src=""></a>
+		</div>
+	
+		<div id="noticebg">
+			<div id="notice">
+				<div id="ntop">
+					<a>공지사항</a>
+					<a href=""><img width="25px"; height="25px"; src="메가폰.png"></a>
+				</div>
+			<ul id="nbottom">
+				<li><a href="공지사항1.html" >1336</a></li>
+        <li><a href="공지사항2.html" >넷라인</a></li>
+        <li><a href="공지사항3.html" >상담안내</a></li>
+			</ul>
+			</div>
+		</div>
+	
+		<div id="menu">
+<h3>AD</h3>
+			 <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <a href="https://www.kcgp.or.kr/pcMain.do#anchor1%5C"><img src="1.png" >
+        <div class="text"></div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <a href="https://www.kcgp.or.kr/pcMain.do#anchor1%5C"><img src="2.png"  >
+        <div class="text"></div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+       <a href="https://www.playd.com/contents/etc/ad_inquiry.html"> <img src="광고.png" >
+        <div class="text"></div>
+      </div>
+
+      
+
+    </div>
+    <br/>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+     
+    </div>
+			<div id="btn">
+			</div>
+			</div>
+		</div>
+
+	</div>
+ </div>
+
+<div id="footer">
+	<div id="ftop">
+		<div class="width">
+			<ul>
+				<li><a href="">개인정보처리방침</a></li>
+				<li><a href="">정보보호실천수칙</a></li>
+				<li><a href="">이메일무단수집거부</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="fbottom">
+		<div class="width">
+			
+			
+		</div>
+	</div>
+	  
+ </body>
+</html>

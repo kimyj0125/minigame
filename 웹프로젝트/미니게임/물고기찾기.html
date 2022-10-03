@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta charset="utf-8">
+  <meta name="Description" content="">
+  <title>물고기찾기</title>  
+  <link href="" rel="stylesheet">
+  <link href="" rel="stylesheet">
+
+    <style type="text/css">
+  .width{margin: 0 auto; width:1200px; position:relative;}
+  .width:after{content:'';display:block;clear:both;}
+  body,div,p,ul,li,a,img,nav{margin:0; padding:0;}
+  table{border-spacing:0;}
+
+  #header{height:86px; position:relative; background:#0c4da2; z-index:2;}
+  #top {padding:5px 0; }
+  #header img{float:left; padding:3px 10px;}
+  #header > #top> a{float:left; background:#4c4c4c; color:white; font-size:12px; padding:3px; position:absolute; top:14px;}
+  
+  #top nav{float:right; padding:10px 0;}
+  #top nav ul li{float:left; list-style:none; font-size:11px; padding: 3px;}
+  #top nav ul li a {text-decoration:none; color:white;}
+
+  #gnb{background:white; line-height:30px; text-align:center; }
+  
+  #depth1{background:#333333;}
+  #depth1 ul li{width:290px; padding: 10px 3px; float:left;
+  font-family: 'Noto Sans KR', sans-serif; font-size:16px; list-style:none;} 
+  #depth1 ul li a{text-decoration:none; color:white;}
+
+  #depth2 {height:0px; background:white; overflow:hidden;transition-duration:0.7s;border-bottom:1px solid #e0e0e0; }
+  #depth2 ul{float:left; padding:10px 3px;  border-left:1px solid #e0e0e0; height:200px;}
+  #depth2 li{list-style:none; font-size:12px; width:290px;}
+  #depth2 a{text-decoration:none; color:black;}
+  #depth1 li:hover {text-decoration: underline; background:#292929}
+  #depth1:hover ~ #depth2{height:200px;}
+  #depth2:hover {height:200px;}
+
+#header > #top> t {left: 150px; float:center; background:#0c4da2; color:white; font-size:12px; padding:3px; position:absolute; top:14px;}
+
+
+  #visual {background:url("samaple1.png") no-repeat 50% 0/cover; width:100%;height:360px;}
+
+  #container {height:320px; padding:30px;}
+
+  #quick {width:285px; height:340px; padding:0 30px;float:left;}
+  #quick a{height:32%; display:block; float:right;} 
+
+  #noticebg {width:540px; height:330px; background:#f4f4f4; position:relative;float:left;}
+  #notice {width:500px; height:280px; position:absolute; top:25px; left:20px;}
+  #ntop {width:500px; height:40px; border-bottom:1px solid #990000;}
+  #ntop a{font-size:18px; font-family: 'Noto Sans KR', sans-serif; color:#990000;}
+  #ntop img{float:right; padding: 3px 5px;}
+
+  #nbottom {padding:15px 20px;}
+  #nbottom li{font-size:14px; padding:3px 0;}
+  #nbottom li a{text-decoration:none; color: #6b6b6b;
+  display:inline-block; margin-left:-6px; vertical-align:top;}
+
+  #menu{width:270px; height:330px; background:#ba760b; float:right; text-align:center; }
+  #menu h3 {color:white; padding:10px;}
+  #menu p{color:white; font-size:12px;}
+
+  #btn{float:top; padding:20px 0;}  
+  #btn {display:block; position:relative;}
+  #btn button { width:230px; height:50px; border:0px; background-color:rgba(0,0,0,0.6); color:#fff; margin-bottom:1%; font-weight:bold; font-size:15px; text-align:left; padding:0px 15px; }
+  #btn li { list-style:none; float:right;}
+  #btn button:hover{text-decoration: underline;}
+
+  #footer{height:150px; background:#f4f4f4;}
+  #ftop{height:40px; border-bottom:1px solid #dadada;}
+  #ftop li {list-style:none; font-size:12px; float:left; padding:12px 3px;}
+  #ftop a {text-decoration:none; color:#990000;}
+  #fbottom {position:relative;}
+  #fbottom img{position:absolute; top:10px; left:3px;}
+  #fbottom p  {font-size: 12px; position:absolute; top:10px; left:170px; color:gray;}
+
+
+
+
+
+
+
+#box1 {
+      position: absolute;
+      display: inline-block;
+      vertical-align: top;
+      width: 190px;
+      height: 500px;
+    }
+
+    #box2 {
+      left: 210px;
+      position: absolute;
+      width: 700px;
+      height: 400px;
+      background: yellowgreen;
+      margin: auto;
+    }
+
+    div.buttonBox {
+      border: 1px solid darkgreen;
+      background: antiquewhite;
+      margin-bottom: 5px;
+      padding: 1px;
+    }
+
+    td {
+      padding: 15px;
+    }
+
+
+  </style>
+
+<script>
+
+  window.onload=function(){
+    if (localStorage.getItem("login")=="O")
+    {
+
+    }
+    else
+    {
+      alert("로그인후 이용 가능 합니다.");
+      window.history.back();
+
+    }
+  }
+  function Refresh(){
+          localStorage.getItem("nowmoney");
+          var P = document.getElementById("value");
+          P.innerHTML = localStorage.getItem("nowmoney") 
+        }
+</script>
+
+  
+
+
+
+
+
+ </head>
+ <body> 
+ <div id="header">
+
+  <div id="top" class="width">
+    
+    <t><input type="button" onclick="Refresh();" value="새로고침"> 현재금액 : <t id="value"></t></t>
+
+    <nav id="service">
+      <ul>
+      
+        <li><a href="../Home.html">홈으로</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <nav id="gnb">
+
+    <div id="depth1">
+      <div class="width">
+        <ul>
+          <li><a href="물고기찾기.html" >물고기찾기</a></li>
+          
+         
+          <li><a href="숫자맞추기.html" >숫자맞추기</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+  </nav>
+
+ </div>
+
+ <br>
+ <br>
+ <div class="width">
+
+<h3 >숨어있는 물고기 찾기</h3>
+  <hr>
+  <br>
+  <div id="box1">
+    <div id="start" class="buttonBox" onclick="gameStart()" onmouseover="over(event)" onmouseout="out(event)">게임시작</div>
+    <div id="remains" class="buttonBox" onmouseover="over(event)" onmouseout="out(event)">남은 수 : 8</div>
+    <div id="fails" class="buttonBox" onmouseover="over(event)" onmouseout="out(event)">실패 수 : 0</div>
+    <div id="timer" class="buttonBox" onmouseover="over(event)" onmouseout="out(event)">시간 : 0</div>
+    <div id="guide" class="buttonBox" onmouseover="over(event)" onmouseout="out(event)">게임이 진행될 예정입니다.</div>
+  </div>
+    <table id="box2">
+    <script>
+      for(var i=0; i<3; i++) {
+        document.write("<tr>");
+        for(var j=0; j<8; j++) {
+          document.write("<td><img id='egg" + i + j + "' src='egg.png' onclick='eggCheck(event)' onmouseover='over(event)' onmouseout='out(event)'></td>");
+        }
+        document.write("</tr>");
+      }
+    </script>
+    </table>
+ <audio id="bad" src="media/bad.mp3"></audio>
+    <audio id="chimes" src="media/chimes.mp3"></audio>
+    <audio id="clock" src="media/clock.mp3"></audio>
+    <audio id="ending" src="media/ending.mp3"></audio>
+    <audio id="tada" src="media/tada.mp3"></audio>
+
+    <iframe src="media/silence.mp3" style="display: none"></iframe>
+    <audio src="media/bgm.mp3" autoplay loop></audio>
+   
+
+    <script>
+      var timeId = null;
+      var seceond = 0;
+      var start = document.getElementById("start");
+      var gamming = false;
+      var gameover = null;
+      var remains = document.getElementById("remains");
+      var remainsNumber = 8;
+      var fails = document.getElementById("fails");
+      var failsNumber = 0;
+      var timer = document.getElementById("timer");
+      var guide = document.getElementById("guide");
+      var find = false;
+
+      var bad = document.getElementById("bad");
+      var chimes = document.getElementById("chimes");
+      var clock = document.getElementById("clock");
+      var ending = document.getElementById("ending");
+      var tada = document.getElementById("tada");
+
+      var numberOfDog = 0;
+      var eggs = new Array(3);
+      eggs[0] = new Array(8);
+      eggs[1] = new Array(8);
+      eggs[2] = new Array(8);
+    </script>
+
+    <script>
+      function gameStart() {
+        if(gamming) return;
+        gamming = true;
+        start.innerHTML = "다시 게임시작";
+        remains.innerHTML = "남은 수 : 8";
+        remainsNumber = 8;
+        fails.innerHTML = "실패 수 : 0";
+        failsNumber = 0;
+        numberOfDog = 0;
+
+        for(var i=0; i<3; i++) {
+            for(var j=0; j<8; j++) {
+              eggs[i][j] = null;
+              var egg = document.getElementById("egg" + i + j);
+              egg.src = "egg.png";
+              egg.style.border = "1px solid yellowgreen";
+
+            }
+          }
+
+        if(gameover != null) document.body.removeChild(gameover);
+
+        second = 3;
+        timeId = setInterval("count()", 1000);
+        alert("2초 동안 숨어있는 물고기를 기억하세요.")
+        guide.innerHTML = "2초 동안 숨어있는 물고기를 기억하세요."
+        showDog();
+      }
+
+      function count() {
+        clock.play();
+        second--;
+
+        if(second == 0 && !find) hideDog();
+        if(second == -1 && !find) {
+          second = 0;
+          clearInterval(timeId);
+          timeId = null;
+          second = 6;
+          timeId = setInterval("count()", 1000);
+          find = true;
+          alert("지금부터 숨어있는 물고기를 찾으세요.");
+          guide.innerHTML = " 지금부터 숨어있는 물고기를 찾으세요.";
+        }
+
+        if(second == 0 && find) {
+          alert("시간이 종료 되었습니다.");
+          guide.innerHTML = "시간이 종료 되었습니다."
+          clearInterval(timeId);
+          timeId = null;
+          find = false;
+          numberOfDog = 0;
+          gamming = false;
+
+          for(var i=0; i<3; i++) {
+            for(var j=0; j<8; j++) {
+              if(eggs[i][j] == "dog") {
+                var egg = document.getElementById("egg" + i + j);
+                egg.src = "fish.png";
+                egg.style.border = "1px solid red";
+              }
+            }
+          }
+
+          makeGameover();
+        }
+        timer.innerHTML = "시간 : " + second;
+      }
+    </script>
+
+
+    <script>
+      function over(e) {
+        e.target.style.border = "1px solid red";
+      }
+
+      function out(e) {
+        e.target.style.border = "none";
+      }
+    </script>
+
+    <script>
+      function showDog() {
+        while(numberOfDog != 8) {
+          var ran1 = Math.floor(Math.random()*3);
+          var ran2 = Math.floor(Math.random()*8);
+          if(eggs[ran1][ran2] == null) {
+            eggs[ran1][ran2] = "dog";
+            numberOfDog++;
+            var egg = document.getElementById("egg" + ran1 + ran2);
+            egg.src = "fish.png";
+          }
+        }
+      }
+
+      function hideDog() {
+        for(var i=0; i<3; i++) {
+          for(var j=0; j<8; j++) {
+            var egg = document.getElementById("egg" + i + j);
+            egg.src = "egg.png";
+          }
+        }
+      }
+    </script>
+
+    <script>
+      function eggCheck(e) {
+        var egg = e.target;
+        var i = egg.id.charAt(3);
+        var j = egg.id.charAt(4);
+
+        if(find && eggs[i][j] == "dog") {
+          chimes.play();
+          var egg = document.getElementById("egg" + i + j);
+            egg.src = "fish.png";
+            remainsNumber--;
+            remains.innerHTML = "남은 수 : " + remainsNumber;
+            eggs[i][j] = "checked";
+        }
+
+        else if(find) {
+          bad.play();
+          failsNumber++;
+          fails.innerHTML = "실패 수 : " + failsNumber;
+        }
+
+        if(remainsNumber == 0) {
+          tada.play();
+          alert("모든 물고기를 찾았습니다!"); 
+          guide.innerHTML = "모든 물고기를 찾았습니다!"
+          clearInterval(timeId);
+          timeId = null;
+          find = false;
+          gameover = null;
+          gamming = false;
+          localStorage.getItem("nowmoney");
+            var sum=0;
+            var now = localStorage.getItem("nowmoney");
+            sum = parseInt(now)+2*1000;
+            localStorage.setItem("nowmoney",sum);
+      
+        }
+      }
+
+      function makeGameover() {
+        gameover = document.createElement("div");
+        gameover.innerHTML = "GAME OVER";
+        gameover.style.position = "absolute";
+        gameover.style.top = "300px";
+        gameover.style.left = "440px";
+        gameover.style.fontWeight = "550";
+        gameover.style.fontSize = "50px";
+        gameover.style.color = "darkred";
+        document.body.appendChild(gameover);
+        ending.play();
+      }
+    </script>
+
+ <div id="visual">
+  
+
+ </div>
+ <div id="container">
+
+  
+  </div>
+ </div>
+
+<div id="footer">
+  <div id="ftop">
+    <div class="width">
+      <ul>
+        <li><a href="">개인정보처리방침</a></li>
+        <li><a href="">정보보호실천수칙</a></li>
+        <li><a href="">이메일무단수집거부</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="fbottom">
+    <div class="width">
+      
+      
+    </div>
+  </div>
+    
+ </body>
+</html>

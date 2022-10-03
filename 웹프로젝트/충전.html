@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>충전
+
+</title>
+ 
+ 
+  <style>
+
+
+ td, tr, textarea, select
+ {
+   font-family:고딕;
+  font-size:1em;
+  border-radius:5px;
+  
+ }
+ 
+ table, FORM
+ {
+  border:1px solid rgba(36, 228, 172, 0.29);
+  border-spacing:15px;
+  border-radius:20px;
+ }
+
+ #textbox{width:300px; height:30px; border:1px solid #00a6ff; font-size:12px; font-weight:bold; position:relative; top:-10px}
+
+ #idcheck{width:60px; height:30px; border:1px solid #00a6ff;background-color:#fff;font-size:12px; font-weight:bold; position:relative; top:-10px; cursor:pointer;}
+#pwd{font-size:1px; position: relative;}
+#back{  border-radius:20px; width:150px; height:40px; border:1px solid #ddd;background-color:#ddd; font-size:12px; font-weight:bold; position:relative;  cursor:pointer; right: 50px;}
+
+ #join{
+    border-radius:20px; width:150px; height:40px; border:1px solid #00a6ff;background-color:#00a6ff;color: #fff; font-size:12px; font-weight:bold; position:relative;  cursor:pointer; left: 50px;}
+  </style>
+<script>  
+  if(localStorage.getItem("nowmoney")==null)
+      {
+        localStorage.setItem("nowmoney",0);
+      }
+
+      if(localStorage.getItem("nowmoney")==0)
+      {
+        localStorage.setItem("nowmoney",0);
+      }
+
+            function calc() {
+             localStorage.getItem("nowmoney");
+
+            
+            var y = document.getElementById("y").value;
+            var sum;
+            var now = localStorage.getItem("nowmoney");
+            sum = parseInt(now) + parseInt(y);
+            document.getElementById("sum").value = sum;
+
+            localStorage.setItem("nowmoney",sum);
+
+
+        }
+        
+        function Refresh(){
+          localStorage.getItem("nowmoney");
+          var P = document.getElementById("value"); // html 의 아이디가 value인 p를 가져온다.
+          P.innerHTML = localStorage.getItem("nowmoney") 
+        }
+
+
+
+        function no() {
+         num1=document.getElementById("y").value;
+
+      if(num1==""){        /*아무값도 입력 받지 못했을시*/
+
+        alert('숫자를 입력하세요');
+        localStorage.setItem("nowmoney",0);
+
+      }
+  }
+        
+
+
+
+        </script>
+
+</head>
+<body style="background-color:#fafafa">
+ <center>
+ 
+
+
+ <table boder = "" bgcolor = "#fff">
+  <fieldset>
+<legend><h1>충전</h1>
+</legend>
+  <input type="button" onclick="Refresh();" value="새로고침">
+    <p id="value"> 현재금액</p>
+
+
+
+    
+
+
+    충전할 금액을 입력하시오 <input id="y"size="7"  >
+    <input type="button"id="asdf" value="입력" onclick="calc();no();"  ><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   충전 후 금액 <input id="sum" size="7"><br>
+</fieldset>
+
+ </FORM>
+</table>
+
+<br/>
+
+
+
+
+</center>
+</body>
+</html>

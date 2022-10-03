@@ -1,0 +1,201 @@
+
+	body,div,p,ul,li,a,img,nav{margin:0; padding:0;}
+	table{border-spacing:0;}
+.width{margin: 0 auto; width:1200px; position:relative;}
+	.width:after{content:'';display:block;clear:both;}
+	#header{height:86px; position:relative; background:#0c4da2; z-index:2;}
+	#top {padding:5px 0; }
+	#header img{float:left; padding:3px 10px;}
+	#header > #top> a{float:left; background:#0c4da2; color:white; font-size:12px; padding:3px; position:absolute; top:14px;}
+	
+	#top nav{float:right; padding:10px 0;}
+	#top nav ul li{float:left; list-style:none; font-size:11px; padding: 3px;}
+	#top nav ul li a {text-decoration:none; color:white;}
+
+	#gnb{background:white; line-height:30px; text-align:center; }
+	
+	#depth1{background:#333333;}
+	#depth1 ul li{width:290px; padding: 10px 3px; float:left;
+	font-family: 'Noto Sans KR', sans-serif; font-size:16px; list-style:none;} 
+	#depth1 ul li a{text-decoration:none; color:white;}
+
+	#depth2 {height:0px; background:white; overflow:hidden;transition-duration:0.7s;border-bottom:1px solid #e0e0e0; }
+	#depth2 ul{float:left; padding:10px 3px;  border-left:1px solid #e0e0e0; height:200px;}
+	#depth2 li{list-style:none; font-size:12px; width:290px;}
+	#depth2 a{text-decoration:none; color:black;}
+	#depth1 li:hover {text-decoration: underline; background:#292929}
+	#depth1:hover ~ #depth2{height:200px;}
+	#depth2:hover {height:200px;}
+
+
+
+	#loginbox {
+		width:220px;height:120px;border:1px solid #ccc;margin-top:20px;padding:25px 15px; box-sizing:border-box;}
+
+	#accountbtn {width:70px; height:30px; border:none; background-color: #808080; border-radius:3px; color:#ffffff; font-size:12px; font-weight:bold; position:relative; top:5px; left: 33px;}	
+
+	#loginbtn {width:70px; height:30px; border:none; background-color: #ff9900; border-radius:3px; color:#ffffff; font-size:12px; font-weight:bold; position:relative; top:5px; left: 30px;}
+	#logoutbtn {width:70px; height:30px; border:none; background-color: #ff9900; border-radius:3px; color:#ffffff; font-size:12px; font-weight:bold; position:relative; top:15px; left: 125px;}
+
+
+	#quickgame{margin: 0 auto; position:relative;left: 50px; top: 20px;}
+
+
+
+	#coupon{
+		font-size: 10px;
+		width:220px;height:70px;border:1px solid #ccc;margin-top :20px;padding:5px 5px;box-sizing:border-box;
+	}
+	#couponbox{position:relative; top: 20px;}
+	#couponbtn{width:50px; height:15px; border:none; background-color: #000; border-radius:3px; color:#ffffff; font-size:10px; font-weight:bold; position:relative;
+
+	}
+
+
+
+
+	#container {height:320px; padding-bottom: 30px;}
+
+
+	#quick {width:215.5px; height:340px; padding:0 30px;float:left;}
+	#quick a{height:32%; display:block; float:right;} 
+
+	#noticebg {width:540px; height:330px; background:#f4f4f4; position:relative;float:left;}
+	#notice {width:500px; height:280px; position:absolute; top:25px; left:20px;}
+	#ntop {width:500px; height:40px; border-bottom:1px solid #990000;}
+	#ntop a{font-size:18px; font-family: 'Noto Sans KR', sans-serif; color:#990000;}
+	#ntop img{float:right; padding: 3px 5px;}
+
+	#nbottom {padding:15px 20px;}
+	#nbottom li{font-size:14px; padding:3px 0;}
+	#nbottom li a{text-decoration:none; color: #6b6b6b;
+	display:inline-block; margin-left:-6px; vertical-align:top;}
+
+	#menu{width:270px; height:330px; background:#ba760b; float:right; text-align:center;}
+	#menu h3 {color:white; padding:10px;}
+	#menu p{color:white; font-size:12px;}
+
+
+	@keyframes img{
+		from{}
+		to{transform : translateX(100px);}
+	}
+	#asdf {
+		animation-name: img;
+		animation-duration: ;
+		animation-iteration-count:infinite ;
+	}
+
+	#btn{float:top; padding:20px 0;}	
+	#btn {display:block; position:relative;}
+	#btn button { width:230px; height:50px; border:0px; background-color:rgba(0,0,0,0.6); color:#fff; margin-bottom:1%; font-weight:bold; font-size:15px; text-align:left; padding:0px 15px; }
+	#btn li { list-style:none; float:right;}
+	#btn button:hover{text-decoration: underline;}
+
+	#footer{height:150px; background:#f4f4f4;}
+	#ftop{height:40px; border-bottom:1px solid #dadada;}
+	#ftop li {list-style:none; font-size:12px; float:left; padding:12px 3px;}
+	#ftop a {text-decoration:none; color:#990000;}
+	#fbottom {position:relative;}
+	#fbottom img{position:absolute; top:10px; left:3px;}
+	#fbottom p  {font-size: 12px; position:absolute; top:10px; left:170px; color:gray;}
+
+
+
+  #menu * {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
+#menu .slideshow-container {
+  
+  position: relative;
+  margin: auto;
+}
+#menu .slideshow-container .mySlides img {
+  height: 230px; width: 260px;
+}
+
+#menu .mySlides {
+  display: none;
+}
+
+#menu .prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+#menu .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+#menu .prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+#menu .text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+#menu .numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+#menu .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+
+}
+
+#menu .active, .dot:hover {
+  background-color: #717171;
+}
+
+#menu .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+#menu @-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#menu @keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+#menu {
+	position: relative; right:100px;
+}
+

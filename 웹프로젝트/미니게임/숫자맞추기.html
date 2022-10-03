@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta charset="UTF-8">
+  <meta name="Description" content="">
+  <title>숫자맞추기</title>  
+  <link href="" rel="stylesheet">
+  <link href="" rel="stylesheet">
+
+		<style type="text/css">
+	.width{margin: 0 auto; width:1200px; position:relative;}
+	.width:after{content:'';display:block;clear:both;}
+	body,div,p,ul,li,a,img,nav{margin:0; padding:0;}
+	table{border-spacing:0;}
+
+	#header{height:86px; position:relative; background:#0c4da2; z-index:2;}
+	#top {padding:5px 0; }
+	#header img{float:left; padding:3px 10px;}
+	#header > #top> a{float:left; background:#4c4c4c; color:white; font-size:12px; padding:3px; position:absolute; top:14px;}
+	
+	#top nav{float:right; padding:10px 0;}
+	#top nav ul li{float:left; list-style:none; font-size:11px; padding: 3px;}
+	#top nav ul li a {text-decoration:none; color:white;}
+
+	#gnb{background:white; line-height:30px; text-align:center; }
+	
+	#depth1{background:#333333;}
+	#depth1 ul li{width:290px; padding: 10px 3px; float:left;
+	font-family: 'Noto Sans KR', sans-serif; font-size:16px; list-style:none;} 
+	#depth1 ul li a{text-decoration:none; color:white;}
+
+	#depth2 {height:0px; background:white; overflow:hidden;transition-duration:0.7s;border-bottom:1px solid #e0e0e0; }
+	#depth2 ul{float:left; padding:10px 3px;  border-left:1px solid #e0e0e0; height:200px;}
+	#depth2 li{list-style:none; font-size:12px; width:290px;}
+	#depth2 a{text-decoration:none; color:black;}
+	#depth1 li:hover {text-decoration: underline; background:#292929}
+	#depth1:hover ~ #depth2{height:200px;}
+	#depth2:hover {height:200px;}
+
+
+	#xy {position: absolute;
+		left:25%;
+	}
+
+
+
+
+	#loginbox {
+		width:220px;height:120px;border:1px solid #ccc;margin:20px;padding:25px 15px; box-sizing:border-box;}
+
+	#accountbtn {width:70px; height:30px; border:none; background-color: #808080; border-radius:3px; color:#ffffff; font-size:12px; font-weight:bold; position:relative; top:5px; left: 33px;}	
+
+	#loginbtn {width:70px; height:30px; border:none; background-color: #ff9900; border-radius:3px; color:#ffffff; font-size:12px; font-weight:bold; position:relative; top:5px; left: 30px;}
+
+	#coupon{
+		font-size: 10px;
+		width:220px;height:70px;border:1px solid #ccc;margin:20px;padding:5px 5px;box-sizing:border-box;
+	}
+	#couponbox{position:relative; top: 20px;}
+	#couponbtn{width:50px; height:15px; border:none; background-color: #000; border-radius:3px; color:#ffffff; font-size:10px; font-weight:bold; position:relative;
+	}
+
+
+
+
+
+	#visual {background:url("samaple1.png") no-repeat 50% 0/cover; width:100%;height:360px;}
+
+	#container {height:320px; padding:30px;}
+
+	#quick {width:285px; height:340px; padding:0 30px;float:left;}
+	#quick a{height:32%; display:block; float:right;} 
+
+	#noticebg {width:540px; height:330px; background:#f4f4f4; position:relative;float:left;}
+	#notice {width:500px; height:280px; position:absolute; top:25px; left:20px;}
+	#ntop {width:500px; height:40px; border-bottom:1px solid #990000;}
+	#ntop a{font-size:18px; font-family: 'Noto Sans KR', sans-serif; color:#990000;}
+	#ntop img{float:right; padding: 3px 5px;}
+
+	#nbottom {padding:15px 20px;}
+	#nbottom li{font-size:14px; padding:3px 0;}
+	#nbottom li a{text-decoration:none; color: #6b6b6b;
+	display:inline-block; margin-left:-6px; vertical-align:top;}
+
+	#menu{width:270px; height:330px; background:#ba760b; float:right; text-align:center; }
+	#menu h3 {color:white; padding:10px;}
+	#menu p{color:white; font-size:12px;}
+
+	#btn{float:top; padding:20px 0;}	
+	#btn {display:block; position:relative;}
+	#btn button { width:230px; height:50px; border:0px; background-color:rgba(0,0,0,0.6); color:#fff; margin-bottom:1%; font-weight:bold; font-size:15px; text-align:left; padding:0px 15px; }
+	#btn li { list-style:none; float:right;}
+	#btn button:hover{text-decoration: underline;}
+
+	#footer{height:150px; background:#f4f4f4;}
+	#ftop{height:40px; border-bottom:1px solid #dadada;}
+	#ftop li {list-style:none; font-size:12px; float:left; padding:12px 3px;}
+	#ftop a {text-decoration:none; color:#990000;}
+	#fbottom {position:relative;}
+	#fbottom img{position:absolute; top:10px; left:3px;}
+	#fbottom p  {font-size: 12px; position:absolute; top:10px; left:170px; color:gray;}
+
+ .number {
+            display: inline-block;
+            background: #aaa;
+            color: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            line-height: 100px;
+            font-size: 64px;
+            text-align: center;
+            font-weight: bold;
+            overflow: hidden;
+        }
+        .numset {
+            text-align: center;
+            padding: 10px;
+        }       
+        #header > #top> t {left: 150px; float:center; background:#0c4da2; color:white; font-size:12px; padding:3px; position:absolute; top:14px;}
+
+        
+    </style>
+
+
+	 <script>
+	 	window.onload=function(){
+    if (localStorage.getItem("login")=="O")
+    {
+
+    }
+    else
+    {
+      alert("로그인후 이용 가능 합니다.");
+      window.history.back();
+
+    }
+}
+function Refresh(){
+          localStorage.getItem("nowmoney");
+          var P = document.getElementById("value"); 
+          P.innerHTML = localStorage.getItem("nowmoney")
+        }
+
+
+ 	ran=parseInt((Math.random()*1)+1);
+
+	count=1;
+
+
+	function guess()
+
+	{
+
+
+		num1=document.getElementById("user").value;
+
+			if(num1==""){       
+
+				alert('숫자를 입력하세요');
+
+			}
+
+			if(num1==ran)        
+
+			{
+				document.getElementById("btn").disabled=true;
+				var newbtn = document.getElementById("area");
+				var text ="정답입니다.<br>" + '<input type="button" id="logoutbtn" onclick="retry();" value="다시하기"/>';
+				newbtn.innerHTML = text;
+
+
+
+			localStorage.getItem("nowmoney");
+            var sum=0;
+            var now = localStorage.getItem("nowmoney");
+            sum = parseInt(now)*2;
+            localStorage.setItem("nowmoney",sum);
+ 			
+			
+			}
+			else{                               
+
+				if(ran>num1){           
+
+					document.getElementById("result").value=(num1+"보다 큽니다.");
+
+				}else{                       
+
+					document.getElementById("result").value=(num1+"보다 작습니다.");
+
+				}
+
+			}
+
+			if(count==5){                    
+				var newbtn = document.getElementById("area");
+				var text ="정답은"+ran+"입니다.<br>" + '<input type="button" id="logoutbtn" onclick="retry();" value="다시하기"/>';
+
+				document.getElementById("btn").disabled=true;
+
+				document.getElementById("area").style.color="red";
+
+				
+				
+				newbtn.innerHTML = text;
+
+
+
+				localStorage.getItem("nowmoney");
+            var sum=0;
+            var now = localStorage.getItem("nowmoney");
+            sum = parseInt(now)-5000;
+            localStorage.setItem("nowmoney",sum);
+
+			}
+
+			
+
+			document.getElementById("guesses").value=("시도한 횟수는"+(count++)+"번 입니다.");
+
+			
+
+
+	}
+	function retry()
+	{
+		location.reload();
+
+	}
+	
+</script>
+ </head>
+ <body> 
+ <div id="header">
+
+	<div id="top" class="width">
+		
+		
+		<t><input type="button" onclick="Refresh();" value="새로고침"> 현재금액 : <t id="value"></t> </t>
+
+		<nav id="service">
+			<ul>
+			
+				
+				<li><a href="../Home.html">홈으로</a></li>
+			</ul>
+		</nav>
+
+	</div>
+
+	<nav id="gnb">
+
+		<div id="depth1">
+			<div class="width">
+				<ul>
+					<li><a href="물고기찾기.html" >물고기찾기</a></li>
+					
+					
+					<li><a href="숫자맞추기.html" >숫자맞추기</a></li>
+					
+				</ul>
+			</div>
+		</div>
+		
+
+	</nav>
+
+ </div>
+
+<div class="width">
+	<br>
+	<br>
+
+<br>
+<br>
+<br>
+
+<e id= "xy">
+	<h2>숫자 맞추기 게임</h2>
+
+	이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다. 숫자는 1부터 100사이에 있습니다.<br>
+	기회는 5번입니다.
+
+	<form>
+
+		숫자 : 
+
+		<input type="text" id="user" size="5">
+
+		<input type="button" id="btn" value="확인" onclick="guess()">
+
+		추측횟수:
+
+		<input type="text" id="guesses" size="30">
+
+		힌트 : 
+
+		<input type="text" id="result" size="16">
+
+
+
+	</form>
+
+	<div id="area"></div>
+</div>
+
+
+</div>
+</e>
+ <div id="visual">
+ 	
+ </div>
+
+ <div id="container">
+
+	
+	</div>
+ </div>
+
+<div id="footer">
+	<div id="ftop">
+		<div class="width">
+			<ul>
+				<li><a href="">개인정보처리방침</a></li>
+				<li><a href="">정보보호실천수칙</a></li>
+				<li><a href="">이메일무단수집거부</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="fbottom">
+		<div class="width">
+			
+			
+		</div>
+	</div>
+	  
+ </body>
+</html>
